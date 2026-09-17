@@ -1,3 +1,4 @@
+# Sistema de votación
 candidatos = {
     "Ana": 0,
     "Carlos": 0,

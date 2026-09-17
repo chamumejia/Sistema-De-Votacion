@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Votar · VotaSimple{% endblock %}
+
+{% block content %}
+<section class="encabezado">
+    <p class="etiqueta">TU PARTICIPACIÓN</p>
+
+    <h1>Elige tu candidato</h1>
+
+    <p class="texto-gris">
+        Hola, <strong>{{ datos_usuario.nombre }}</strong>.
+        Solo puedes registrar un voto.
+    </p>
+</section>
+
+<form class="candidatos" method="POST">
+    <label class="tarjeta-candidato">
+        <input type="radio"
+               name="candidato"
+               value="Ana"
+               required>
+
+        <span class="radio"></span>
+
+        <span>
+            <strong>Ana</strong>
+            <small>Propuesta y comunidad</small>
+        </span>
+    </label>
+
+    <label class="tarjeta-candidato">
+        <input type="radio"
+               name="candidato"
+               value="Carlos">
+
+        <span class="radio"></span>
+
+        <span>
+            <strong>Carlos</strong>
+            <small>Ideas y compromiso</small>
+        </span>
+    </label>
+
+    <label class="tarjeta-candidato">
+        <input type="radio"
+               name="candidato"
+               value="Luisa">
+
+        <span class="radio"></span>
+
+        <span>
+            <strong>Luisa</strong>
+            <small>Futuro y participación</small>
+        </span>
+    </label>
+
+    <button class="boton completo" type="submit">
+        Confirmar mi voto
+    </button>
+</form>
+{% endblock %}

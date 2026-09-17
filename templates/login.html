@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Iniciar sesión · VotaSimple{% endblock %}
+
+{% block content %}
+<section class="formulario-seccion login">
+    <div>
+        <p class="etiqueta">BIENVENIDO DE NUEVO</p>
+        <h1>Inicia sesión</h1>
+        <p class="texto-gris">
+            Ingresa para participar en la votación.
+        </p>
+    </div>
+
+    <form class="formulario" method="POST">
+        <label>
+            Nombre de usuario
+            <input type="text" name="usuario" required>
+        </label>
+
+        <label>
+            Contraseña
+            <input type="password" name="password" required>
+        </label>
+
+        <button class="boton completo" type="submit">
+            Iniciar sesión
+        </button>
+
+        <p class="texto-centro">
+            ¿No tienes cuenta?
+            <a href="{{ url_for('registro') }}">
+                Regístrate
+            </a>
+        </p>
+    </form>
+</section>
+{% endblock %}

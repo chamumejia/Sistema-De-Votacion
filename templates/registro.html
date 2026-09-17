@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Crear cuenta · VotaSimple{% endblock %}
+
+{% block content %}
+<section class="formulario-seccion">
+    <div>
+        <p class="etiqueta">PRIMER PASO</p>
+        <h1>Crea tu cuenta</h1>
+        <p class="texto-gris">
+            Completa tus datos para participar.
+        </p>
+    </div>
+
+    <form class="formulario" method="POST">
+        <div class="fila">
+            <label>
+                Nombre
+                <input type="text" name="nombre" required>
+            </label>
+
+            <label>
+                Apellidos
+                <input type="text" name="apellidos" required>
+            </label>
+        </div>
+
+        <div class="fila">
+            <label>
+                Tipo de documento
+
+                <select name="tipo_documento" required>
+                    <option value="">Selecciona</option>
+                    <option value="CC">
+                        Cédula de ciudadanía
+                    </option>
+                    <option value="TI">
+                        Tarjeta de identidad
+                    </option>
+                    <option value="CE">
+                        Cédula de extranjería
+                    </option>
+                </select>
+            </label>
+
+            <label>
+                Número de documento
+                <input type="text"
+                       name="numero_documento"
+                       required>
+            </label>
+        </div>
+
+        <label>
+            Nombre de usuario
+            <input type="text"
+                   name="usuario"
+                   minlength="3"
+                   required>
+        </label>
+
+        <label>
+            Contraseña
+            <input type="password"
+                   name="password"
+                   minlength="4"
+                   required>
+        </label>
+
+        <button class="boton completo" type="submit">
+            Crear cuenta
+        </button>
+
+        <p class="texto-centro">
+            ¿Ya tienes cuenta?
+            <a href="{{ url_for('login') }}">
+                Inicia sesión
+            </a>
+        </p>
+    </form>
+</section>
+{% endblock %}

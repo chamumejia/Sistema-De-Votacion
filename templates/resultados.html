@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Resultados · VotaSimple{% endblock %}
+
+{% block content %}
+<section class="encabezado resultados-cabecera">
+    <div>
+        <p class="etiqueta">TRANSPARENCIA</p>
+
+        <h1>Resultados</h1>
+
+        <p class="texto-gris">
+            Total de votos registrados:
+            <strong>{{ total }}</strong>
+        </p>
+    </div>
+
+    <form method="POST"
+          action="{{ url_for('reiniciar') }}"
+          onsubmit="return confirmarReinicio();">
+
+        <button class="boton peligro" type="submit">
+            Reiniciar votación
+        </button>
+    </form>
+</section>
+
+<section class="resultados">
+    {% for resultado in resultados %}
+        <article class="resultado">
+            <div class="resultado-info">
+                <strong>{{ resultado.nombre }}</strong>
+
+                <span>
+                    {{ resultado.votos }} voto(s) ·
+                    {{ resultado.porcentaje }}%
+                </span>
+            </div>
+
+            <div class="barra-resultado">
+                <div style="width: {{ resultado.porcentaje }}%">
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+</section>
+
+<a class="volver" href="{{ url_for('votar') }}">
+    ← Volver a votar
+</a>
+{% endblock %}
